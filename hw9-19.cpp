@@ -56,14 +56,19 @@ int main()
 double getPayment(int prin, double monthRate, int months)
 {
     double monthPay = 0.0;
+    double roundedPay = 0.0;
+    
     if (months == 0)
         monthPay = -1;
     else
         //calculate and returns a monthly payment
         //double monthPay = 0.0;
          monthPay = prin * monthRate / (1-pow(monthRate + 1, -months));
+         
     //end if
-    return monthPay;
+    
+    roundedPay = static_cast<int>((monthPay + .005) * 100) / 100.0;
+    return roundedPay;
 } //end of getPayment function
 
 
